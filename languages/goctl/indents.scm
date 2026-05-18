@@ -1,0 +1,8 @@
+(serviceSpec "{" @indent "}" @outdent)
+(structType "{" @indent "}" @outdent)
+(typeGroupSpec "(" @indent ")" @outdent)
+(importGroup "(" @indent ")" @outdent)
+(infoStatement "(" @indent ")" @outdent)
+(serviceDoc "(" @indent ")" @outdent)
+(serviceServerSpec "(" @indent ")" @outdent)
+(serviceHandler "(" @indent ")" @outdent)

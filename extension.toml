@@ -1,0 +1,19 @@
+id = "goctl"
+name = "goctl"
+description = "goctl API language support for Zed"
+version = "0.1.0"
+schema_version = 1
+authors = ["goctl-zed contributors"]
+repository = "https://github.com/caichuanwang/goctl-zed"
+snippets = ["./snippets/goctl.json"]
+
+[grammars.goctl]
+repository = "https://github.com/chaozwn/tree-sitter-goctl"
+rev = "49c43532689fe1f53e8b9e009d0521cab02c432b"
+
+[language_servers.goctl-api-lsp]
+name = "goctl API LSP"
+languages = ["goctl"]
+
+[language_servers.goctl-api-lsp.language_ids]
+"goctl" = "goctl"

@@ -1,0 +1,14 @@
+syntax = "v1"
+
+type CreateUserRequest {
+	Name string `json:"name"`
+	Age  int    `json:"age"`
+	Id   string `path:"id"`
+}
+
+type UserResponse {
+	Id     string `json:"id"`
+	Name   string `json:"name"`
+	Active bool   `json:"active"`
+}
+

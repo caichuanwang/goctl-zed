@@ -1,0 +1,14 @@
+name = "goctl"
+grammar = "goctl"
+path_suffixes = ["api"]
+line_comments = ["// "]
+tab_size = 4
+hard_tabs = false
+brackets = [
+  { start = "{", end = "}", close = true, newline = true, not_in = ["comment", "string"] },
+  { start = "[", end = "]", close = true, newline = false, not_in = ["comment", "string"] },
+  { start = "(", end = ")", close = true, newline = false, not_in = ["comment", "string"] },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["comment", "string"] },
+  { start = "'", end = "'", close = true, newline = false, not_in = ["comment", "string"] },
+  { start = "`", end = "`", close = true, newline = false, not_in = ["comment", "string"] },
+]

@@ -1,0 +1,7 @@
+/target/
+/node_modules/
+*.log
+.DS_Store
+.serena/
+extension.wasm
+grammars/goctl/

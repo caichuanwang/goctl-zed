@@ -1,0 +1,31 @@
+syntax = "v1"
+
+import "types.api"
+
+info (
+	title:   "User API"
+	desc:    "Example goctl API file"
+	author:  "goctl-zed"
+	email:   "dev@example.com"
+	version: "1.0"
+)
+
+@server (
+	handler: auth
+	timeout: 3s
+)
+service user-api {
+	// Create a user.
+	@doc (
+		summary: "create user"
+	)
+	@handler createUser
+	post /users/:id (CreateUserRequest) returns (UserResponse)
+
+	/*
+* Fetch a user.
+*/
+	@handler getUser
+	get /users/:id returns (UserResponse)
+}
+
