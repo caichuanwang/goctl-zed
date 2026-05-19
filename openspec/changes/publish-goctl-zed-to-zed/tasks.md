@@ -10,8 +10,8 @@
 
 - [x] 2.1 Verify the extension runtime resolves `goctl-api-lsp` from PATH before downloading a release asset.
 - [x] 2.2 Verify dev-extension fallback uses `server/goctl-api-lsp.mjs` without requiring a GitHub Release.
-- [ ] 2.3 Prepare GitHub Release `v0.1.0` for `caichuanwang/goctl-zed` with asset name `goctl-api-lsp.mjs` sourced from `server/goctl-api-lsp.mjs`.
-- [ ] 2.4 Validate the release asset can be downloaded and starts as an LSP script under Node.
+- [x] 2.3 Prepare GitHub Release `v0.1.0` for `caichuanwang/goctl-zed` with asset name `goctl-api-lsp.mjs` sourced from `server/goctl-api-lsp.mjs`.
+- [x] 2.4 Validate the release asset can be downloaded and starts as an LSP script under Node.
 
 ## 3. Local Verification
 
@@ -23,11 +23,11 @@
 
 ## 4. Official Registry Submission
 
-- [ ] 4.1 Fork or update a local checkout of `zed-industries/extensions`.
-- [ ] 4.2 Add `https://github.com/caichuanwang/goctl-zed.git` as the `extensions/goctl` submodule at the release-ready commit.
-- [ ] 4.3 Add the `[goctl]` entry to the registry `extensions.toml` with `submodule = "extensions/goctl"` and `version = "0.1.0"`.
-- [ ] 4.4 Run the official registry sort/format command such as `pnpm sort-extensions`.
-- [ ] 4.5 Commit the registry changes and open a PR to `zed-industries/extensions` with validation evidence and release asset notes.
+- [x] 4.1 Fork or update a local checkout of `zed-industries/extensions`.
+- [x] 4.2 Add `https://github.com/caichuanwang/goctl-zed.git` as the `extensions/goctl` submodule at the release-ready commit.
+- [x] 4.3 Add the `[goctl]` entry to the registry `extensions.toml` with `submodule = "extensions/goctl"` and `version = "0.1.0"`.
+- [x] 4.4 Run the official registry sort/format command such as `pnpm sort-extensions`.
+- [x] 4.5 Commit the registry changes and open a PR to `zed-industries/extensions` with validation evidence and release asset notes.
 
 ## 5. Post-Submission Follow-Up
 
