@@ -21,7 +21,7 @@ Zed language support for go-zero `goctl` `.api` files, modeled after the impleme
    goctl --version
    ```
 
-2. Install Node.js. The extension uses Node to run the bundled lightweight language server.
+2. Install Node.js. The extension uses Node to run the lightweight language server when a native `goctl-api-lsp` executable is not available.
 
 3. Install this repository as a Zed dev extension:
 
@@ -41,6 +41,25 @@ goctl api format --stdin
 ```
 
 If formatting fails, check that `goctl` is installed, executable, and visible to the environment used by Zed. You can set `GOCTL_BIN` before launching Zed to point the language server at a specific binary path.
+
+## Language Server Resolution
+
+For public releases, the extension does not launch a language server bundled inside the extension package. At startup it resolves the server in this order:
+
+1. Use `goctl-api-lsp` from the user's `PATH` when available.
+2. Use a previously downloaded `goctl-api-lsp.mjs` from the Zed extension work directory.
+3. Use the repository-local `server/goctl-api-lsp.mjs` when running as a dev extension.
+4. Otherwise, download `goctl-api-lsp.mjs` from the latest GitHub Release for `caichuanwang/goctl-zed` into the Zed extension work directory and run it with Node.
+
+For local development before a GitHub Release exists, installing this repository as a dev extension uses `server/goctl-api-lsp.mjs` directly. You can also force the PATH branch:
+
+```sh
+mkdir -p .local/bin
+ln -sf "$PWD/server/goctl-api-lsp.mjs" .local/bin/goctl-api-lsp
+PATH="$PWD/.local/bin:$PATH" zed .
+```
+
+For public releases, attach `server/goctl-api-lsp.mjs` to the GitHub Release as `goctl-api-lsp.mjs`.
 
 ## Snippets
 

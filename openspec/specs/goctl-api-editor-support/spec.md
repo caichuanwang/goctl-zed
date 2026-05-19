@@ -90,6 +90,17 @@ The extension SHALL format goctl API documents by invoking the installed `goctl`
 - **WHEN** the goctl formatter exits with a non-zero status
 - **THEN** the extension reports the formatter error and preserves the user's unformatted document contents
 
+### Requirement: Language server resolution
+The extension SHALL resolve the goctl API language server from the user environment, a local development source, or an external release asset without requiring a language server bundled in the published extension package.
+
+#### Scenario: User-installed language server exists
+- **WHEN** `goctl-api-lsp` is available on the user's `PATH`
+- **THEN** the extension launches that executable directly
+
+#### Scenario: User-installed language server is missing
+- **WHEN** `goctl-api-lsp` is not available on the user's `PATH`
+- **THEN** the extension uses a cached download, a dev-extension-local script, or downloads `goctl-api-lsp.mjs` from the latest GitHub Release and runs the script with Node
+
 ### Requirement: Definition navigation
 The extension SHALL support definition navigation for symbols declared in the active goctl API file and route request/response types declared in directly imported `.api` files where Zed exposes the required extension API.
 

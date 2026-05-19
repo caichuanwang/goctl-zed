@@ -14,6 +14,7 @@ import {
 
 const sample = readFileSync(new URL("../fixtures/sample.api", import.meta.url), "utf8");
 const types = readFileSync(new URL("../fixtures/types.api", import.meta.url), "utf8");
+const rustExtension = readFileSync(new URL("../src/lib.rs", import.meta.url), "utf8");
 const sampleUri = new URL("../fixtures/sample.api", import.meta.url).href;
 const typesUri = new URL("../fixtures/types.api", import.meta.url).href;
 
@@ -53,6 +54,16 @@ test("snippets include goctl-vscode parity triggers", () => {
   ]) {
     assert.ok(prefixes.includes(prefix), `missing snippet prefix ${prefix}`);
   }
+});
+
+test("extension obtains the language server from PATH, dev source, or GitHub Releases", () => {
+  assert.match(rustExtension, /SERVER_BINARY: &str = "goctl-api-lsp"/);
+  assert.match(rustExtension, /worktree\.which\(SERVER_BINARY\)/);
+  assert.match(rustExtension, /LOCAL_DEVELOPMENT_SERVER_PATH/);
+  assert.match(rustExtension, /local_development_server_path\.exists\(\)/);
+  assert.match(rustExtension, /SERVER_REPOSITORY: &str = "caichuanwang\/goctl-zed"/);
+  assert.match(rustExtension, /latest_github_release\(/);
+  assert.match(rustExtension, /download_file\(/);
 });
 
 test("symbol index captures same-file declarations", () => {
